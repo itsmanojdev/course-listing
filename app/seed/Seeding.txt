@@ -1,0 +1,9 @@
+Step-1:
+First Seed Course Table
+http://localhost:3000/seed/course?page=1
+
+change query param page -> run from page 1 to 10
+
+Step-2:
+Then run on browser - This while seed tags & coursetagmapper table
+http://localhost:3000/seed
