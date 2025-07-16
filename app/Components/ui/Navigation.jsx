@@ -1,5 +1,5 @@
-import Logo  from "./Logo";
-import NavLink from './NavLink';
+import Logo  from "../Logo";
+import NavLink from '../NavLink';
 
 export default function Navigation(){
     return (
