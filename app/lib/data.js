@@ -15,3 +15,14 @@ export const courses = async () => {
     }
 
 }
+
+export const tags = async () => {
+    try{
+        let tags = await sql`SELECT * FROM tags`;
+
+        return tags;
+    } catch(error) {
+        console.log("Error While Fetching Tag List: ", error);
+        throw new Error('Failed to fetch Tag list.');
+    }
+}

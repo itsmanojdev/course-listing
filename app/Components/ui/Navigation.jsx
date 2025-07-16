@@ -8,7 +8,7 @@ export default function Navigation(){
                 <div className="flex gap-8">
                     <Logo className="text-white"/>
                     <div className="flex gap-8">
-                        <NavLink href="/" text="Courses"/>
+                        <NavLink href="/courses" text="Courses"/>
                     </div>
                 </div>
             </div>

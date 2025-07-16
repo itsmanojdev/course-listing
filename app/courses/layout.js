@@ -1,4 +1,4 @@
-import Search from "../Components/Search";
+import FormField from "../Components/FormField";
 import Filters from "../Components/ui/Filters";
 import MobileFilter from "../Components/MobileFilter";
 
@@ -7,7 +7,7 @@ const Layout = ({children}) => {
     <>
         <div className="mt-4 flex flex-col gap-4">
             <h1 className="text-3xl text-teal-900 font-semibold">Courses</h1>
-            <Search placeholder="Search By Course Name"/>
+            <FormField type="text" placeholder="Search By Course Name"/>
             <MobileFilter component={<Filters />}/>
         </div>
         <div className="flex-1 flex flex-row pt-4">

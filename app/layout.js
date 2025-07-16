@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-        className={`h-dvh flex flex-col bg-teal-50 text-gray-800 ${rubik.className} ${inter.className} antialiased`}
+        className={`h-full flex flex-col bg-teal-50 text-gray-800 ${rubik.className} ${inter.className} antialiased`}
       >
         <header className="sticky top-0 z-100">
             <Navigation />

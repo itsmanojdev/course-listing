@@ -3,7 +3,7 @@ import Tag from './Tag'
 
 const CourseCard = ({course}) => {
   return (
-    <div className="bg-white flex flex-col gap-2 shadow-md rounded-sm p-4 overflow-hidden">
+    <div className="bg-white flex flex-col gap-2 shadow-md rounded-sm p-4">
         <div className="w-full h-40 xl:h-50">
             <Image src={course.thumbnail ? `/${course.thumbnail}` : '/course-placeholder.jpeg'} alt={course.title} width={340} height={230} className="size-full object-cover rounded-md"/>
         </div>
