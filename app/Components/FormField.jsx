@@ -1,14 +1,37 @@
 'use client';
 
-const FormField = ({type, name="", label="", value, placeholder = ""}) => {
+import clsx from "clsx";
+
+const defaultFunction = () => console.log('No Handle Function');
+
+const FormField = ({ type, name = "", label = "", value, placeholder = "", defaultValue = "", isDisabled = false, handleFunction = defaultFunction }) => {
+  const handleChange = (term) => {
+    console.log("ser..", term);
+    handleFunction(term);
+  };
+
   switch (type) {
     case "text":
       return (
         <>
-          {label && <label className="block">{label}</label>}
-          <input 
-              className="w-full bg-gray-50 border border-gray-400 px-2 py-2 mt-1 rounded-md outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 animate placeholder:text-gray-500"
-              placeholder={placeholder}
+          {label &&
+            <label
+              className={clsx("block",
+                {
+                  "text-gray-500": isDisabled
+                })}
+            >
+              {label}
+            </label>
+          }
+          <input
+            className="w-full bg-gray-50 border border-gray-400 px-2 py-2 mt-1 rounded-md outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 animate placeholder:text-gray-500"
+            placeholder={placeholder}
+            onChange={(e) => {
+              handleChange(e.target.value);
+            }}
+            defaultValue={defaultValue}
+            disabled={isDisabled}
           />
         </>
       )
@@ -17,22 +40,56 @@ const FormField = ({type, name="", label="", value, placeholder = ""}) => {
       return (
         <>
           <div className="flex">
-              <input type="radio" id={value ?? label} name={name} value={value ?? label} className="checked:bg-teal-500"/>
-              <label htmlFor={value ?? label} className="pl-2">{label}</label>
-            </div>
+            <input
+              type="radio"
+              id={value ?? label}
+              name={name}
+              value={value ?? label}
+              className="checked:bg-teal-600"
+              onChange={(e) => {
+                handleChange(e.target.value);
+              }}
+              disabled={isDisabled}
+            />
+            <label htmlFor={value ?? label}
+              className={clsx("pl-2",
+                {
+                  "text-gray-500": isDisabled
+                })}
+            >
+              {label}
+            </label>
+          </div>
         </>
       )
-    
+
     case "checkbox":
       return (
         <>
           <div className="flex">
-              <input type="checkbox" id={value ?? label} name={name} value={value ?? label} className="checked:bg-teal-500"/>
-              <label htmlFor={value ?? label} className="pl-2">{label}</label>
-            </div>
+            <input
+              type="checkbox"
+              id={value ?? label}
+              name={name}
+              value={value ?? label}
+              className="checked:bg-teal-600"
+              onChange={(e) => {
+                handleChange(e.target.value);
+              }}
+              disabled={isDisabled}
+            />
+            <label htmlFor={value ?? label}
+              className={clsx("pl-2",
+                {
+                  "text-gray-500": isDisabled
+                })}
+            >
+              {label}
+            </label>
+          </div>
         </>
       )
-  
+
     default:
       return;
   }

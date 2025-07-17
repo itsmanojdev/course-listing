@@ -1,6 +1,6 @@
 import sql from "../../config/db"
 import { courses, tags, courseTagMapper } from "../../lib/courseData.js";
-import { saveImageFromUrl } from "../../lib/utils.js";
+import { saveImageFromUrl } from "../../lib/serverUtils.js";
 import { createClient } from 'pexels';
 
 const client = createClient('PwaAeexNNEPfN4PhECaOwwDi39urbzo6VklPZxCwbZ4miPz2SfvwBNDm');
