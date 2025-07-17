@@ -43,7 +43,7 @@ const Filters = ({ tagList }) => {
     }
 
     return (
-        <div className="h-dvh flex flex-col gap-4">
+        <div className="flex flex-col gap-4 md:h-dvh">
             <h2 className="text-lg font-semibold">Filters</h2>
             <div>
                 <h3 className="text-base text-gray-600 pb-2">Course Type</h3>
