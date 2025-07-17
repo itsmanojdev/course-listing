@@ -141,3 +141,19 @@ export const tags = async () => {
         throw new Error('Failed to fetch Tag list.');
     }
 }
+
+export const fetchCourseByID = async (id) => {
+    try {
+        let course = await sql`
+            SELECT C.*, array_agg(T.name) as tags FROM courses as C
+            INNER JOIN coursetagmapper as CTM ON CTM.course_id = C.id
+            INNER JOIN tags as T ON T.id = CTM.tag_id 
+            WHERE C.id = ${id}
+            GROUP BY C.id LIMIT 1;`;
+
+        return course[0];
+    } catch (error) {
+        console.log("Error While Fetching Course Details: ", error);
+        throw new Error('Failed to fetch course details.');
+    }
+}
