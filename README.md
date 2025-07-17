@@ -67,3 +67,5 @@ This project is a great example of building a modern, full-featured web app with
 3. Run locally:
    ```bash
    npm run dev
+
+Made with ❤️ by itsmanojdev
