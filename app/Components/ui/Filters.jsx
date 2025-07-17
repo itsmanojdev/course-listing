@@ -48,7 +48,7 @@ const Filters = ({ tagList }) => {
             {tagList &&
                 <div>
                     <h3 className="text-base text-gray-600 pb-2">Tags</h3>
-                    <div className="flex flex-col gap-2 h-100 overflow-y-auto">
+                    <div className="flex flex-col gap-2 h-50 overflow-y-auto md:h-100">
                         {tagList.map((tag) => <FormField key={tag.id} type="checkbox" label={tag.name} name={tag.name} value={tag.id} isDisabled={isPending} handleFunction={handleTagFilters} />)}
                     </div>
 
