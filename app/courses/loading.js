@@ -1,10 +1,8 @@
-import { CourseListSkeleton } from "../Components/skeletons"
+import { CoursesSkeleton } from "../Components/skeletons"
 
 const Loading = () => {
     return (
-        <>
-            <CourseListSkeleton />
-        </>
+        <CoursesSkeleton />
     )
 }
 

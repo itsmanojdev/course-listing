@@ -1,15 +1,19 @@
 export const CourseCardSkeleton = () => {
     return (
         <div className="bg-white flex flex-col gap-2 shadow-md rounded-sm p-4 animate-pulse">
+            {/* Image */}
             <div className="w-full h-40 xl:h-50 bg-gray-200 rounded-md" />
 
+            {/* Title */}
             <div className="h-6 bg-gray-200 rounded w-3/4 mt-2" />
 
+            {/* Price */}
             <div className="flex items-center gap-4 mt-2">
                 <div className="h-6 w-16 bg-gray-200 rounded" />
                 <div className="h-5 w-10 bg-gray-300 rounded" />
             </div>
 
+            {/* Tags */}
             <div className="flex gap-2 mt-2">
                 <div className="h-6 w-16 bg-gray-200 rounded-full" />
                 <div className="h-6 w-20 bg-gray-200 rounded-full" />
@@ -73,6 +77,7 @@ export const CoursesSkeleton = () => {
             </div>
             <div className="flex-1 flex flex-row pt-4">
                 <div className="hidden md:border-r-2 md:border-gray-300 md:block md:w-1/6">
+                    {/* Filters */}
                     <div className="h-dvh flex flex-col gap-6 animate-pulse">
                         <div className="h-6 w-24 bg-gray-300 rounded"></div>
                         <div>
@@ -105,3 +110,41 @@ export const CoursesSkeleton = () => {
     )
 }
 
+export const CourseDetailsSkeleton = () => {
+    return (
+        <div className="h-dvh flex flex-col py-12 gap-8 md:flex-row animate-pulse">
+            {/* Image */}
+            <div className="md:w-1/3">
+                <div className="w-full h-[230px] xl:h-[300px] bg-gray-300 rounded-md"></div>
+            </div>
+
+            {/* Details */}
+            <div className="md:w-2/3 flex flex-col gap-4">
+                <div>
+                    <div className="h-8 w-3/4 bg-gray-300 rounded mb-4"></div>
+                    <div className="flex gap-2">
+                        {/* Tags */}
+                        <div className="h-6 w-16 bg-gray-200 rounded-full"></div>
+                        <div className="h-6 w-20 bg-gray-200 rounded-full"></div>
+                        <div className="h-6 w-12 bg-gray-200 rounded-full"></div>
+                    </div>
+                </div>
+
+                {/* Price */}
+                <div className="text-xl md:text-3xl flex gap-4 items-center">
+                    <div className="h-6 w-24 bg-gray-300 rounded"></div>
+                    <div className="h-4 w-16 bg-gray-200 rounded line-through"></div>
+                </div>
+
+                {/* Description */}
+                <div className="flex-1 space-y-2 overflow-y-auto">
+                    <div className="h-4 bg-gray-200 rounded w-full"></div>
+                    <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-4 bg-gray-200 rounded w-4/5"></div>
+                    <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+                </div>
+            </div>
+        </div>
+    )
+}
