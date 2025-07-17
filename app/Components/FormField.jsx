@@ -4,9 +4,8 @@ import clsx from "clsx";
 
 const defaultFunction = () => console.log('No Handle Function');
 
-const FormField = ({ type, name = "", label = "", value, placeholder = "", defaultValue = "", isDisabled = false, handleFunction = defaultFunction }) => {
+const FormField = ({ type, name = "", label = "", value, placeholder = "", defaultValue = "", isDisabled = false, isSelected = false, handleFunction = defaultFunction }) => {
   const handleChange = (term) => {
-    console.log("ser..", term);
     handleFunction(term);
   };
 
@@ -50,6 +49,7 @@ const FormField = ({ type, name = "", label = "", value, placeholder = "", defau
                 handleChange(e.target.value);
               }}
               disabled={isDisabled}
+              checked={isSelected}
             />
             <label htmlFor={value ?? label}
               className={clsx("pl-2",
@@ -77,6 +77,7 @@ const FormField = ({ type, name = "", label = "", value, placeholder = "", defau
                 handleChange(e.target.value);
               }}
               disabled={isDisabled}
+              checked={isSelected}
             />
             <label htmlFor={value ?? label}
               className={clsx("pl-2",

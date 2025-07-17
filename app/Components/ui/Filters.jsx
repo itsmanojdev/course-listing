@@ -3,6 +3,7 @@
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import FormField from "../FormField"
 import { useTransition } from 'react';
+import { COURSE_TYPE } from '@/app/lib/constants';
 
 const Filters = ({ tagList }) => {
     const [isPending, startTransition] = useTransition();
@@ -13,7 +14,7 @@ const Filters = ({ tagList }) => {
     const handleTypeFilters = (term) => {
         const params = new URLSearchParams(searchParams);
         term ? params.set('type', term) : params.delete('search');
-        console.log("Params Type setting", params.toString());
+
         startTransition(() => {
             replace(`${pathname}?${params.toString()}`);
         });
@@ -25,13 +26,21 @@ const Filters = ({ tagList }) => {
         let updatedTags = selectedTags.includes(term)
             ? selectedTags.filter(tag => tag !== term)
             : [...selectedTags, term];
-        console.log("updatedTags", updatedTags);
+
         updatedTags.length ? params.set('tags', updatedTags.join(",")) : params.delete('tags');
-        console.log("Params Tag setting", params.toString());
+
         startTransition(() => {
             replace(`${pathname}?${params.toString()}`);
         });
     };
+
+    const isTypeSelected = (str) => {
+        return searchParams.get('type')?.toString().toLowerCase() === str;
+    }
+
+    const isTagSelected = (id) => {
+        return searchParams.get('tags')?.split(",").includes(id);
+    }
 
     return (
         <div className="h-dvh flex flex-col gap-4">
@@ -39,17 +48,17 @@ const Filters = ({ tagList }) => {
             <div>
                 <h3 className="text-base text-gray-600 pb-2">Course Type</h3>
                 <div className="flex flex-col gap-2">
-                    <FormField type="radio" name="course-type" label="All" isDisabled={isPending} handleFunction={handleTypeFilters} />
-                    <FormField type="radio" name="course-type" label="Paid" isDisabled={isPending} handleFunction={handleTypeFilters} />
-                    <FormField type="radio" name="course-type" label="Discount" isDisabled={isPending} handleFunction={handleTypeFilters} />
-                    <FormField type="radio" name="course-type" label="Free" isDisabled={isPending} handleFunction={handleTypeFilters} />
+                    <FormField type="radio" name="course-type" label="All" isDisabled={isPending} isSelected={isTypeSelected(COURSE_TYPE.ALL)} handleFunction={handleTypeFilters} />
+                    <FormField type="radio" name="course-type" label="Paid" isDisabled={isPending} isSelected={isTypeSelected(COURSE_TYPE.PAID)} handleFunction={handleTypeFilters} />
+                    <FormField type="radio" name="course-type" label="Discount" isDisabled={isPending} isSelected={isTypeSelected(COURSE_TYPE.DISCOUNT)} handleFunction={handleTypeFilters} />
+                    <FormField type="radio" name="course-type" label="Free" isDisabled={isPending} isSelected={isTypeSelected(COURSE_TYPE.FREE)} handleFunction={handleTypeFilters} />
                 </div>
             </div>
             {tagList &&
                 <div>
                     <h3 className="text-base text-gray-600 pb-2">Tags</h3>
                     <div className="flex flex-col gap-2 h-50 overflow-y-auto md:h-100">
-                        {tagList.map((tag) => <FormField key={tag.id} type="checkbox" label={tag.name} name={tag.name} value={tag.id} isDisabled={isPending} handleFunction={handleTagFilters} />)}
+                        {tagList.map((tag) => <FormField key={tag.id} type="checkbox" label={tag.name} name={tag.name} value={tag.id} isDisabled={isPending} isSelected={isTagSelected(tag.id)} handleFunction={handleTagFilters} />)}
                     </div>
 
                 </div>
