@@ -64,7 +64,7 @@ const Filters = ({ tagList }) => {
                 leaveFrom="opacity-100 max-h-[1000px]"
                 leaveTo="opacity-0 max-h-0"
             >
-                <div>
+                <div className='space-y-4'>
                     <h2 className="text-lg font-semibold">Filters</h2>
                     <div>
                         <h3 className="text-base text-gray-600 pb-2">Course Type</h3>
