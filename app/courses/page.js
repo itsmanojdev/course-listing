@@ -24,13 +24,13 @@ const page = async ({ searchParams }) => {
       <div className="mt-8 flex flex-col gap-4">
         <h1 className="text-3xl text-teal-900 font-semibold">Courses</h1>
         <Search placeholder="Search By Course Name" />
-        <MobileFilter component={<Filters tagList={tagList} />} />
+        {/* <MobileFilter component={<Filters tagList={tagList} />} /> */}
       </div>
-      <div className="flex-1 md:flex md:flex-row pt-4">
-        <div className="hidden md:border-r-2 md:border-gray-300 md:block md:w-1/6">
+      <div className="flex-1 flex flex-col gap-4 md:gap-0 md:flex-row pt-4">
+        <div className="w-full md:border-r-2 md:border-gray-300 md:block md:w-1/6">
           <Filters tagList={tagList} />
         </div>
-        <div className="md:w-5/6">
+        <div className="w-full md:w-5/6">
           <Suspense key={search + currentPage} fallback={<CourseListSkeleton />}>
             <CourseList search={search} courseType={courseType} tags={tags} currentPage={currentPage} />
           </Suspense>

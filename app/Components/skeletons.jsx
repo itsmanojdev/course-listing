@@ -75,7 +75,7 @@ export const CoursesSkeleton = () => {
             <div className="mt-4 flex flex-col gap-4">
                 <SearchSkeleton />
             </div>
-            <div className="flex-1 flex flex-row pt-4">
+            <div className="flex-1 flex flex-col gap-4 md:gap-0 md:flex-row pt-4">
                 <div className="hidden md:border-r-2 md:border-gray-300 md:block md:w-1/6">
                     {/* Filters */}
                     <div className="h-dvh flex flex-col gap-6 animate-pulse">
@@ -102,7 +102,7 @@ export const CoursesSkeleton = () => {
                         </div>
                     </div>
                 </div>
-                <div className="md:w-5/6">
+                <div className="w-full md:w-5/6">
                     <CourseListSkeleton />
                 </div>
             </div>
