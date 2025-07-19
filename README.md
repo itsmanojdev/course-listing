@@ -35,9 +35,9 @@ A clean, dynamic, and fully responsive course listing application built with **N
 ## 🛠️ Tech Stack
 
 - **Next.js (App Router)**
+- **PostgreSQL**
 - **Tailwind CSS**
 - **Pexels API**
-- **TypeScript**
 - **Vercel** (for deployment)
 
 
