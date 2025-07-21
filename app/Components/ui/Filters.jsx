@@ -16,6 +16,7 @@ const Filters = ({ tagList }) => {
 
     const handleTypeFilters = (term) => {
         const params = new URLSearchParams(searchParams);
+        params.set('page', '1');
         term ? params.set('type', term) : params.delete('search');
 
         startTransition(() => {
@@ -25,6 +26,7 @@ const Filters = ({ tagList }) => {
 
     const handleTagFilters = (term) => {
         const params = new URLSearchParams(searchParams);
+        params.set('page', '1');
         const selectedTags = params.get('tags') ? params.get('tags').split(",") : [];
         let updatedTags = selectedTags.includes(term)
             ? selectedTags.filter(tag => tag !== term)
